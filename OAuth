@@ -1,4 +1,4 @@
-1)Create a new OAuth for external, 1st value for external ID.
+1)Create a new Application registry OAuth for external, 1st value for external ID.
 
 2)Create a POST request to fetch token by using  URL https://dev197374.service-now.com/oauth_token.do
 
