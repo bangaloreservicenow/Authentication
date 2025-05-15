@@ -18,7 +18,7 @@ password -
     "expires_in": 1799
 }
 
-3)Use this token for bearer type and pass fields in params
+3)Use this token for bearer type and pass fields in params. This will be used in a GET call to fetch details of a tables
 
 {
     "result": [
