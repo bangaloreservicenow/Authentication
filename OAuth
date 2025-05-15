@@ -1,0 +1,38 @@
+1)Create a new OAuth for external, 1st value for external ID.
+
+2)Create a POST request to fetch token by using  URL https://dev197374.service-now.com/oauth_token.do
+
+BODy - x-www-form-urlencoded
+
+grant_type - password
+client_id -
+client_secret -
+username - admin
+password - 
+
+{
+    "access_token": "",
+    "refresh_token": "",
+    "scope": "",
+    "token_type": "Bearer",
+    "expires_in": 1799
+}
+
+3)Use this token for bearer type and pass fields in params
+
+{
+    "result": [
+        {
+            "number": "INC0000060",
+            "short_description": "Unable to connect to email",
+            "state": "Closed",
+            "priority": "3 - Moderate"
+        },
+        {
+            "number": "INC0009002",
+            "short_description": "My computer is not detecting the headphone device",
+            "state": "Closed",
+            "priority": "3 - Moderate"
+        },
+        ]
+}
