@@ -28,6 +28,8 @@ var pathParam = request.pathParams;
         response.setBody(incArr);
 		response.setStatus(200);
     } else {
-        response.setBody('User is not present in User table of ServiceNow');
-		response.setStatus(400);
+		var error = {};
+		error.message = 'User is not present in User table of ServiceNow';
+        response.setBody(error);
+		response.setStatus(501);
     }
