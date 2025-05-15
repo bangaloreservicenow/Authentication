@@ -1,0 +1,33 @@
+var pathParam = request.pathParams;
+    var queryParam = request.queryParams;
+    var incArr = [];
+    var user = new GlideRecord('sys_user');
+    user.addQuery('sys_id', pathParam.callerId.toString());
+    user.query();
+
+    if (user.hasNext()) {
+
+		var grInc = new GlideRecord('incident');
+		grInc.addQuery('caller_id',pathParam.callerId.toString());
+		grInc.addQuery('priority',queryParam.priority.toString());
+		grInc.query();
+
+        while (grInc.next()) {
+
+            var incDetails = {};
+
+            incDetails.number = grInc.getValue('number').toString();
+            incDetails.caller = grInc.getDisplayValue('caller_id').toString();
+            incDetails.state = grInc.getDisplayValue('state').toString();
+            incDetails.shortDescription = grInc.getValue('short_description').toString();
+			incDetails.priority = grInc.getDisplayValue('priority').toString();
+
+            incArr.push(incDetails);
+        }
+
+        response.setBody(incArr);
+		response.setStatus(200);
+    } else {
+        response.setBody('User is not present in User table of ServiceNow');
+		response.setStatus(400);
+    }
